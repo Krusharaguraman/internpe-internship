@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="wedding-dress.css">
+  <title>velvetrose</title>
+</head>
+<body>
+  <header>
+    <h1>wedding-dress Section</h1>
+  </header>
+  <div class="dress">
+    <div class="item">
+      <img src="./item1.png" alt=" Aline Wedding Dress">
+      <h2> A-line Wedding Dress</h2>
+      <span class="price">$68.09</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./item1.png', 'A-line Wedding Dress', 68.09)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./item2.png" alt="Mermaid Wedding Dress ">
+      <h2>Mermaid Wedding Dress</h2>
+      <span class="price">$69.90</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./item2.png', 'Mermaid Wedding Dress', 69.90)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./item3.png" alt="Neck Knee-Length Lace Wedding Dress ">
+      <h2>Neck Knee-Length Lace Wedding Dress </h2>
+      <span class="price">$99.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./item3.png', 'Neck Knee-Length Lace Wedding Dress', 99.99)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./item4.png" alt="Sheath Wedding Gown ">
+      <h2>Sheath Wedding Gown </h2>
+      <span class="price">$100.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./item4.png', 'Sheath Wedding Gown', 100.99)"><a class="btn">add to cart</a></button>
+    </div>
+  </div>
+  <div class="dress">
+    <div class="item">
+      <img src="./item5.png" alt=" Ball Gown Wedding Dress">
+      <h2> Ball Gown Wedding Dress</h2>
+      <span class="price">$88.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./item5.png', 'Ball Gown Wedding Dress', 88.99)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./item6.png" alt="coloumn sheath Wedding Gown ">
+      <h2>coloumn sheath Wedding Gown</h2>
+      <span class="price">$77.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./item6.png', 'coloumn sheath Wedding Gown', 77.99)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./item7.png" alt=" Long Sleeve Wedding Dresses">
+      <h2> Long Sleeve Wedding Dresses</h2>
+      <span class="price">$80.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./item7.png', 'Long Sleeve Wedding Dresses', 80.99)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./item8.png" alt="A Line Satin Wedding Dresses Long Sleeve">
+      <h2>A-Line Satin Wedding Dresses Long Sleeve</h2>
+      <span class="price">$90.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./item8.png', 'A-Line Satin Wedding Dresses Long Sleeve', 90.99)"><a  class="btn">add to cart</a></button>
+    </div>
+  </div>
+  <script>
+    function addToCart(imageUrl, itemName, itemPrice) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let itemExists = cart.find(item => item.name === itemName);
+        if (itemExists) {
+            itemExists.quantity++;
+        } else {
+            cart.push({ imageUrl: imageUrl, name: itemName, price: itemPrice, quantity: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  </script>
+</body>
+</html>

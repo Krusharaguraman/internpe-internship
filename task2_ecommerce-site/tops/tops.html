@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="tops.css">
+  <title>velvetrose</title>
+</head>
+<body>
+  <header>
+    <h1>tops Section</h1>
+  </header>
+  <div class="dress">
+    <div class="item">
+      <img src="./tops1.png" alt="Frill Trim Crop Shirred Top ">
+      <h2>Frill Trim Crop Shirred Top </h2>
+      <span class="price">$29.00</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./tops1.png', 'Frill Trim Crop Shirred Top', 29.00)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./tops2.png" alt="Shirred tank top">
+      <h2>Shirred tank top</h2>
+      <span class="price">$44.23</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./tops2.png', 'Shirred tank top', 44.23)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./tops3.png" alt=" Flowy Paisley Tunic Tops">
+      <h2> Flowy Paisley Tunic Tops</h2>
+      <span class="price">$40.95</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./tops3.png', 'Flowy Paisley Tunic Tops', 40.95)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./tops4.png" alt="Crochet Summer Crop Top">
+      <h2>Crochet Summer Crop Top</h2>
+      <span class="price">$22.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./tops4.png', 'Crochet Summer Crop Top', 22.99)"><a  class="btn">add to cart</a></button>
+    </div>
+  </div>
+  <div class="dress">
+    <div class="item">
+      <img src="./tops5.png" alt="Flowy Shirred Top">
+      <h2>Flowy Shirred Top </h2>
+      <span class="price">$34.09</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./tops5.png', 'Flowy Shirred Top', 34.09)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./tops6.png" alt="EveryWear Graphic T-Shirt ">
+      <h2>EveryWear Graphic T-Shirt </h2>
+      <span class="price">$33.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./tops6.png', 'EveryWear Graphic T-Shirt', 33.99)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./tops7.png" alt="Business Shirt">
+      <h2>Business Shirt</h2>
+      <span class="price">$33.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./tops7.png', 'Business Shirt', 33.99)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./tops8.png" alt="Lace Crop Top">
+      <h2>Lace Crop Top</h2>
+      <span class="price">$30.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./tops8.png', 'Lace Crop Top', 30.99)"><a class="btn">add to cart</a></button>
+    </div>
+  </div>
+  <script>
+    function addToCart(imageUrl, itemName, itemPrice) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let itemExists = cart.find(item => item.name === itemName);
+        if (itemExists) {
+            itemExists.quantity++;
+        } else {
+            cart.push({ imageUrl: imageUrl, name: itemName, price: itemPrice, quantity: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  </script>
+</body>
+</html>

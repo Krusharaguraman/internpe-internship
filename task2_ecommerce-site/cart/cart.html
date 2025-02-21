@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./cart.css">
+    <title>Cart Page</title>
+    <script>
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartContainer = document.getElementById('cart-items');
+            let totalAmount = 0;
+            cartContainer.innerHTML = ''; 
+            cart.forEach((item, index) => {
+                totalAmount += item.price * item.quantity;
+                cartContainer.innerHTML += `
+                    <div class="products">
+                        <img src="${item.imageUrl}" alt="${item.name}">
+                        <h3>${item.name}</h3>
+                        <p>Price: $${item.price}</p>
+                        <p>Quantity: ${item.quantity}</p>
+                        <p>Total: $${item.price * item.quantity}</p>
+                        <button class="delete" onclick="deleteItem(${index})">Delete</button>
+                    </div>
+                `;
+            });
+            const totamt = document.getElementById('total-amount');
+            totamt.innerText = 'Total Amount: $' + totalAmount;
+            totamt.style.textDecoration='line-through';
+            document.getElementById('offer-amount').innerText = 'Offer Amount: $' + ((totalAmount*50)/100);
+
+        }
+        function deleteItem(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        window.onload = loadCart;
+    </script>
+</head>
+<body>
+    <h1>Cart Page</h1>
+    <div id="cart-items"></div>
+    <p id="total-amount"></p>
+    <p id="offer-amount"></p>
+    <a href="./payment/payment.html"><button class="Btn">
+        Buy now
+        <svg class="svgIcon" viewBox="0 0 576 512">
+            <path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path>
+        </svg>
+      </button>
+    </a>
+</body>
+</html>

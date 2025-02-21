@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="shorts.css">
+  <title>velvetrose</title>
+</head>
+<body>
+  <header>
+    <h1>shorts Section</h1>
+  </header>
+  <div class="dress">
+    <div class="item">
+      <img src="./shorts1.png" alt="White lace casual shorts">
+      <h2>White lace casual shorts</h2>
+      <span class="price">$38.099</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./jumpsuits1.png', 'White lace casual shorts', 38.099)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./shorts2.png" alt="Cargo shorts">
+      <h2>Cargo shorts</h2>
+      <span class="price">$40.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./jumpsuits2.png', 'Cargo shorts', 40.99)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./shorts3.png" alt="High Waist Lace-Up Sides Shorts">
+      <h2>High Waist Lace-Up Sides Shorts</h2>
+      <span class="price">$30.13</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./jumpsuits3.png', 'High Waist Lace-Up Sides Shorts', 30.13)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./shorts4.png" alt="Stylish Dennim short">
+      <h2>Stylish Dennim short </h2>
+      <span class="price">$44.23</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./jumpsuits4.png', 'Stylish Dennim short', 44.23)"><a class="btn">add to cart</a></button>
+    </div>
+  </div>
+  <div class="dress">
+    <div class="item">
+      <img src="./shorts5.png" alt="Curvy Bottom Short">
+      <h2>Curvy Bottom Short </h2>
+      <span class="price">$35.91</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./jumpsuits5.png', 'Curvy Bottom Short', 35.91)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./shorts6.png" alt="Embroidered Shorts">
+      <h2>Embroidered Shorts </h2>
+      <span class="price">$33.39</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./jumpsuits6.png', 'Embroidered Shorts', 33.39)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./shorts7.png" alt="Crochet shorts">
+      <h2>Crochet shorts</h2>
+      <span class="price">$45.19</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./jumpsuits7.png', 'Crochet shorts', 45.19)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./shorts8.png" alt="Summer Beadded shorts">
+      <h2>Summer Beadded shorts</h2>
+      <span class="price">$37.09</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./jumpsuits8.png', 'Summer Beadded shorts', 37.09)"><a class="btn">add to cart</a></button>
+    </div>
+  </div>
+  <script>
+    function addToCart(imageUrl, itemName, itemPrice) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let itemExists = cart.find(item => item.name === itemName);
+        if (itemExists) {
+            itemExists.quantity++;
+        } else {
+            cart.push({ imageUrl: imageUrl, name: itemName, price: itemPrice, quantity: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  </script>
+</body>
+</html>

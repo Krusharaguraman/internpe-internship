@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="skirt.css">
+  <title>velvetrose</title>
+</head>
+<body>
+  <header>
+    <h1>Skirt Section</h1>
+  </header>
+  <div class="dress">
+    <div class="item">
+      <img src="./skirt1.png" alt="Box pleated skirt">
+      <h2>Box pleated skirt</h2>
+      <span class="price">$28.33</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./skirt1.png', 'Box pleated skirt', 28.33)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./skirt2.png" alt="Distressed Denim Skirt">
+      <h2>Distressed Denim Skirt</h2>
+      <span class="price">$34.77</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./skirt2.png', 'Distressed Denim Skirt', 34.77)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./skirt3.png" alt="Handkerchief Skirt">
+      <h2>Handkerchief Skirt</h2>
+      <span class="price">$41.29</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./skirt3.png', 'Handkerchief Skirt', 41.29)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./skirt4.png" alt="HighLow skirt">
+      <h2>HighLow skirt</h2>
+      <span class="price">$33.76</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./skirt4.png', 'HighLow skirt', 33.76)"><a class="btn">add to cart</a></button>
+    </div>
+  </div>
+  <div class="dress">
+    <div class="item">
+      <img src="./skirt5.png" alt="Valentino Pleated Midi Skirt">
+      <h2>Valentino Pleated Midi Skirt </h2>
+      <span class="price">$42.45</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./skirt5.png', 'Valentino Pleated Midi Skirt', 42.45)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./skirt6.png" alt="White Lace Skirt">
+      <h2>White Lace Skirt</h2>
+      <span class="price">$37.56</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./skirt6.png', 'White Lace Skirt', 37.56)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./skirt7.png" alt="Asymmetrical Skirt">
+      <h2>Asymmetrical Skirt</h2>
+      <span class="price">$30.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./skirt7.png', 'Asymmetrical Skirt', 30.99)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./skirt8.png" alt="Summer Beach Skirts">
+      <h2>Summer Beach Skirts</h2>
+      <span class="price">$45.64</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./skirt8.png', 'Summer Beach Skirts', 45.64)"><a class="btn">add to cart</a></button>
+    </div>
+  </div>
+  <script>
+    function addToCart(imageUrl, itemName, itemPrice) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let itemExists = cart.find(item => item.name === itemName);
+        if (itemExists) {
+            itemExists.quantity++;
+        } else {
+            cart.push({ imageUrl: imageUrl, name: itemName, price: itemPrice, quantity: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  </script>
+</body>
+</html>

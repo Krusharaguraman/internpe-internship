@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="pant.css">
+  <title>velvetrose</title>
+</head>
+<body>
+  <header>
+    <h1>Pant Section</h1>
+  </header>
+  <div class="dress">
+    <div class="item">
+      <img src="./pant1.png" alt="Plaid Stitching Pants">
+      <h2>Plaid Stitching Pants</h2>
+      <span class="price">$49.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./pant1.png', 'Plaid Stitching Pants', 49)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./pant2.png" alt="Dark Academia Pants">
+      <h2>Dark Academia Pants</h2>
+      <span class="price">$10.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./pant2.png', 'Dark Academia Pants', 10.99)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./pant3.png" alt="Blue Checkers Pant">
+      <h2>Blue Checkers Pant</h2>
+      <span class="price">$39.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./pant3.png', 'Blue Checkers Pant', 39.99)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./pant4.png" alt="Butterfly print jeans">
+      <h2>Butterfly print jeans</h2>
+      <span class="price">$29.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./pant4.png', 'Butterfly print jeans', 29.99)"><a class="btn">add to cart</a></button>
+    </div>
+  </div>
+  <div class="dress">
+    <div class="item">
+      <img src="./pant5.png" alt="soft Plaid Stitching Pants">
+      <h2>Soft Plaid Stitching Pants </h2>
+      <span class="price">$45.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./pant5.png', 'Soft Plaid Stitching Pants ', 45.99)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./pant6.png" alt="Cargo Pants">
+      <h2>Cargo Pants</h2>
+      <span class="price">$35.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./pant6.png', 'Cargo Pants', 35.99)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./pant7.png" alt="Grunge Cargo Jeans">
+      <h2>Grunge Cargo Jeans</h2>
+      <span class="price">$30.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./pant7.png', 'Grunge Cargo Jeans', 30.99)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./pant8.png" alt="High Waisted Baggy Ripped Jeans ">
+      <h2>High Waisted Ripped Jeans </h2>
+      <span class="price">$21.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./pant8.png', 'High Waisted Ripped Jeans ', 21.99)"><a class="btn">add to cart</a></button>
+    </div>
+  </div>
+    <script>
+        function addToCart(imageUrl, itemName, itemPrice) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let itemExists = cart.find(item => item.name === itemName);
+            if (itemExists) {
+                itemExists.quantity++;
+            } else {
+                cart.push({ imageUrl: imageUrl, name: itemName, price: itemPrice, quantity: 1 });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+  </script>
+</body>
+</html>

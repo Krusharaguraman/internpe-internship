@@ -1,0 +1,97 @@
+.wb-main {
+    height: 650px;
+    width: 1300px;
+   background-image: url(images.png);
+   background-size: 1350px 650px;
+   display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 20px;
+}
+.wb-name {
+    font-size: 60px;
+    font-family: 'Velvet Rose', cursive;
+}
+body {
+    background-color: #F2E3D2;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+}
+.navbar a:hover {
+    background-color: #575757;
+}
+.nav-links {
+    display: flex;
+}
+.nav-links a {
+    margin-right: 20px;
+}
+.navbar .icons img {
+    width: 24px;
+    height: 24px;
+    margin-left: 20px;
+}
+.icons {
+    display: flex;
+    align-items: center;
+}
+.Btn {
+    width: 130px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(15, 15, 15);
+    border: none;
+    color: white;
+    font-weight: 600;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+  }
+  
+  .svgIcon {
+    width: 16px;
+  }
+  
+  .svgIcon path {
+    fill: white;
+  }
+  
+  .Btn::before {
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    content: "";
+    background-color: white;
+    border-radius: 50%;
+    left: -100%;
+    top: 0;
+    transition-duration: .3s;
+    mix-blend-mode: difference;
+  }
+  
+  .Btn:hover::before {
+    transition-duration: .3s;
+    transform: translate(100%,-50%);
+    border-radius: 0;
+  }
+  
+  .Btn:active {
+    transform: translate(5px,5px);
+    transition-duration: .3s;
+  }

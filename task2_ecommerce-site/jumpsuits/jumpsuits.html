@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./jumpsuits.css">
+  <title>velvetrose</title>
+</head>
+<body>
+  <header>
+    <h1>jumpsuit Section</h1>
+  </header>
+  <div class="dress">
+    <div class="item">
+      <img src="./jumpsuits1.png" alt="Disco Jumpsuits">
+      <h2>Disco Jumpsuit</h2>
+      <span class="price">$38.099</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./jumpsuits1.png', 'Disco Jumpsuit', 38.099)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./jumpsuits2.png" alt="Floral Print Ruffle Trim Surplice Jumpsuit">
+      <h2>Floral Print Ruffle Trim Surplice Jumpsuit</h2>
+      <span class="price">$40.99</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./jumpsuits2.png', 'Floral Print Ruffle Trim Surplice Jumpsuit', 40.99)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./jumpsuits3.png" alt="Cotton Linen Jumpsuit ">
+      <h2>Cotton Linen Jumpsuit</h2>
+      <span class="price">$30.13</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./jumpsuits3.png', 'Cotton Linen Jumpsuit', 30.13)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./jumpsuits4.png" alt="Bridal Jumpsuits ">
+      <h2>Bridal Jumpsuits </h2>
+      <span class="price">$44.23</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./jumpsuits4.png', 'Bridal Jumpsuits', 44.23)"><a class="btn">add to cart</a></button>
+    </div>
+  </div>
+  <div class="dress">
+    <div class="item">
+      <img src="./jumpsuits5.png" alt="Bunny jumpsuit">
+      <h2>Bunny jumpsuit </h2>
+      <span class="price">$35.91</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./jumpsuits5.png', 'Bunny jumpsuit', 35.91)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./jumpsuits6.png" alt="Long Black Party Jumpsuit ">
+      <h2>Long Black Party Jumpsuit </h2>
+      <span class="price">$33.39</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./jumpsuits6.png', 'Long Black Party Jumpsuit', 33.39)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./jumpsuits7.png" alt="Short jumpsuit">
+      <h2>Short jumpsuit</h2>
+      <span class="price">$45.19</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./jumpsuits7.png', 'Short jumpsuit', 45.19)"><a class="btn">add to cart</a></button>
+    </div>
+    <div class="item">
+      <img src="./jumpsuits8.png" alt="Goa jumpsuit">
+      <h2>Goa jumpsuit</h2>
+      <span class="price">$37.09</span> <br>
+      <button class="add-to-cart" onclick="addToCart('./jumpsuits8.png', 'Goa jumpsuit', 37.09)"><a class="btn">add to cart</a></button>
+    </div>
+  </div>
+  <script>
+    function addToCart(imageUrl, itemName, itemPrice) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let itemExists = cart.find(item => item.name === itemName);
+        if (itemExists) {
+            itemExists.quantity++;
+        } else {
+            cart.push({ imageUrl: imageUrl, name: itemName, price: itemPrice, quantity: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e0f7fa;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            background-color: #37474f;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        .display {
+            background-color: #263238;
+            color: #fff;
+            height: 50px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            text-align: right;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 60px);
+            gap: 10px;
+        }
+        .btn {
+            background-color: #455a64;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            padding: 15px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .btn:hover {
+            background-color: #546e7a;
+        }
+        .equals {
+            grid-column: span 2;
+            background-color: #00acc1;
+        }
+        .equals:hover {
+            background-color: #00838f;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display" id="display"></div>
+        <div class="buttons">
+            <button class="btn" onclick="clearDisplay()">AC</button>
+            <button class="btn" onclick="deleteLast()">DE</button>
+            <button class="btn" onclick="appendToDisplay('.')">.</button>
+            <button class="btn" onclick="appendToDisplay('/')">/</button>
+            <button class="btn" onclick="appendToDisplay('*')">*</button>
+
+            <button class="btn" onclick="appendToDisplay('7')">7</button>
+            <button class="btn" onclick="appendToDisplay('8')">8</button>
+            <button class="btn" onclick="appendToDisplay('9')">9</button>
+            <button class="btn" onclick="appendToDisplay('-')">-</button>
+
+            <button class="btn" onclick="appendToDisplay('4')">4</button>
+            <button class="btn" onclick="appendToDisplay('5')">5</button>
+            <button class="btn" onclick="appendToDisplay('6')">6</button>
+            <button class="btn" onclick="appendToDisplay('+')">+</button>
+
+            <button class="btn" onclick="appendToDisplay('1')">1</button>
+            <button class="btn" onclick="appendToDisplay('2')">2</button>
+            <button class="btn" onclick="appendToDisplay('3')">3</button>
+            
+            <button class="btn" onclick="appendToDisplay('0')">0</button>
+            <button class="btn" onclick="appendToDisplay('00')">00</button>
+            <button class="btn equals" onclick="calculateResult()">=</button>
+        </div>
+    </div>
+    <script>
+        function appendToDisplay(value) {
+    document.getElementById("display").innerText += value;
+}
+
+function clearDisplay() {
+    document.getElementById("display").innerText = "";
+}
+
+function deleteLast() {
+    const display = document.getElementById("display");
+    display.innerText = display.innerText.slice(0, -1);
+}
+
+function calculateResult() {
+    const display = document.getElementById("display");
+    try {
+        display.innerText = eval(display.innerText);
+    } catch (e) {
+        display.innerText = "Error";
+    }
+}
+    </script>
+</body>
+</html>

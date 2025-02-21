@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>to-do-list</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        background: linear-gradient(50deg, #ff88708a, #ff53287e, #e03b9b7a, #cd54eb7c);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        height: 100vh;
+      }
+  
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+        width: 500px;
+      }
+      ul li {
+        border-radius: 25px;
+        width:500px;
+        cursor: pointer;
+        position: relative;
+        color: #000000;
+        padding: 12px 8px 12px 40px;
+        list-style-type: none;
+        background: #e0c2bc60;
+        font-size: 18px;
+        font-family: Courier, monospace;
+        transition: 0.2s;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      ul li:hover {
+        background: #e2c5c5;
+      }
+      ul li.checked {
+        background: #91716b6c;
+        color: #000000;
+        text-decoration: line-through;
+      }
+      ul li.checked::before {
+        content: '';
+        position: absolute;
+        border-color: green;
+        border-style: solid;
+        border-width: 0 2px 2px 0;
+        top: 10px;
+        left: 16px;
+        transform: rotate(45deg);
+        height: 15px;
+        width: 7px;
+      }
+      .close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 12px 16px 12px 16px;
+      }
+
+      .close:hover {
+        width:500px;
+        background-color: transparent;
+        color: white;
+      }
+      .header {
+        background-color: white;
+        padding: 30px 40px;
+        color: white;
+        text-align: center;
+        width:700px; 
+        background-color:transparent; 
+        margin: auto; 
+        border: 3px transparent; 
+        position: fixed;
+
+        position: fixed;
+      top: 15%;
+      left: 28%;
+      }
+      .header:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      input {
+        background-color: #ffffff85;
+        margin: 0;
+        border: none;
+        border-radius: 25px;
+        width: 420px;
+        padding: 10px;
+        padding-left: 30px;
+        float: left;
+        font-size: 16px;
+      }
+      .addBtn {
+        padding: 10px;
+        width: 20%;
+        background: #d82f2f88;
+        color: #000000;
+        float: left;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+        font-family: Courier, monospace;
+        border-radius: 25px;
+      }
+
+      .addBtn:hover {
+        background-color: #d82f2f38;
+      }
+      h2 {
+        margin:10px; 
+        text-align: center; 
+        font-family:cursive; 
+        color:black;
+      }
+      ::placeholder {
+        font-family: Courier, monospace;
+        color: black;
+      }
+    </style>
+  </head>
+  <body >
+    <div id="myDIV" class="header">
+      <h2>My To Do List</h2>
+      <input type="text" id="myInput" placeholder="Enter task..." />
+      <span onclick="newElement()" class="addBtn" >Add</span>   <br> <br> <br>
+      <ul id="myUL">
+        <li>cook breakfast</li>
+        <li class="checked">buy vegetables</li>
+        <li>water plants</li>
+        <li>Read a book</li>
+        <li>do homemork</li>
+      </ul>
+    </div>
+    <script>
+      var myNodelist = document.getElementsByTagName("LI");
+      var i;
+      for (i = 0; i < myNodelist.length; i++) {
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        myNodelist[i].appendChild(span);
+      }
+      var close = document.getElementsByClassName("close");
+        var i;
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function() {
+            var div = this.parentElement;
+            div.style.display = "none";
+          }
+        }
+      var list = document.querySelector('ul');
+        list.addEventListener('click', function(ev) {
+          if (ev.target.tagName === 'LI') {
+            ev.target.classList.toggle('checked');
+          }
+        }, false);
+      function newElement() {
+        var li = document.createElement("li");
+        var inputValue = document.getElementById("myInput").value;
+        var t = document.createTextNode(inputValue);
+        li.appendChild(t);
+        if (inputValue === '') {
+          alert("You must write something!");
+        } else {
+          document.getElementById("myUL").appendChild(li);
+        }
+        document.getElementById("myInput").value = "";
+
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function() {
+            var div = this.parentElement;
+            div.style.display = "none";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
